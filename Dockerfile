@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:lts-alpine as develop-stage
 
 LABEL maintainer="Guilherme Mascarenhas Barbosa <gmascb@gmail.com>"
 
@@ -18,4 +18,5 @@ RUN npm run build
 
 EXPOSE 8080
 
-CMD ["npm run serve"]
+# CMD [ "npm", "start" ]
+CMD ["npm", "run serve"]
