@@ -37,3 +37,4 @@ npm run lint
 * build
   * ```docker build . -t vuejs```
   * ```docker run -it -p 8080:8080 --name vuejs vuejs```
+  * http://172.17.0.2:8080/
