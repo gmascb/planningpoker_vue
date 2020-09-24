@@ -1,10 +1,12 @@
 <template>
-  <v-container>
-    <v-btn>Ola</v-btn>
-  </v-container>
-</template>
+  <v-app>
+    <v-toolbar app>
+      <v-toolbar-title class="headline text-uppercase">
+      </v-toolbar-title>
+    </v-toolbar>
 
-<v-btn dark>Ola</v-btn>
+  </v-app>
+</template>
 
 <script>
   export default {
