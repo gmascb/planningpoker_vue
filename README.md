@@ -36,4 +36,4 @@ npm run lint
   * ```sudo docker build . -t vuejs```
   * ```sudo docker run vuejs```
   * http://172.17.0.2:8080/
-  * ```sudo docker build . -t vuejs && sudo docker run vuejs```
+  * ```sudo docker build . -t vuejs && sudo docker run -p 8080:8080 vuejs```
