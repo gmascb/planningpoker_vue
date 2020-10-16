@@ -1,30 +1,35 @@
 <template>
   <v-app name="PaginaInicial">
-    <div>
-    
-      <p> {{blog}} </p>
-
-    </div>
-    
+    <form-play />
   </v-app>
 </template>
 
 <script>
   import ServiceTechPoker from '../services/service-techpoker';
-  this.users = ServiceTechPoker.findUsers()
+  import FormPlay from '../components/FormPlay'
+  // this.users = ServiceTechPoker.findUsers()
 
   export default {
     name: 'PaginaInicial',
+    
+    components: {
+      FormPlay
+    },
 
     data: () => ({
-      users: this.users,
-      blog: "teste do blog 2"
+      users: ServiceTechPoker.findUsers(),
+      blog: "TechPoker Vuejs"
     }),
+    
+    // mounted() {
+    //   ServiceTechPoker.findUsers()
+    //   .then((resp) => { this.users = resp; } )
+    // },
 
-    // data() {
+    // data() {ß
     //   return {
-    //     // users: ServiceTechPoker.findUsers()
-    //     users: null
+    //     // users: ServiceTechPoker.findUsers(),
+    //     // blog: ["teste do blog 5", "teste 1"]
     //   }
     // }
   }
