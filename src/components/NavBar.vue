@@ -16,15 +16,12 @@
             transition="scale-transition" width="40"/>
       </v-btn>
       
-      <hello-world />
 
 
     </v-app-bar>
 </template>
 
-<script>
-  // import NavBar from '../components/NavBar'
-  
+<script>  
   export default {
     name: 'NavBar',
 

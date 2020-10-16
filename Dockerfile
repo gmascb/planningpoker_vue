@@ -16,7 +16,7 @@ RUN npm install sass sass-loader fibers deepmerge -D
 
 COPY . .
 
-RUN npm run build
+# RUN npm run build
 
 EXPOSE 8080
 

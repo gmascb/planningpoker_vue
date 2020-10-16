@@ -2,8 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import vuetify from './plugins/vuetify';
-import serviceTechPoker from './services/service-techpoker'
-import HelloWorld from './components/HelloWorld.vue'
+// import serviceTechPoker from './services/service-techpoker'
+// import PaginaInicial from './components/PaginaInicial.vue'
 
 Vue.config.productionTip = false
 
@@ -11,15 +11,15 @@ Vue.config.productionTip = false
 new Vue({
   mounted: function() {
     
-    serviceTechPoker.findUsers()
-      .then(response => fillUsers(HelloWorld.users, response) )
+    // serviceTechPoker.findUsers()
+    //   .then(response => fillUsers(PaginaInicial.users, response) )
 
-      1+1
+    //   1+1
 
   },
-  data: {
-    users: null
-  },
+  // data: {
+  //   users: null
+  // },
   router,
   vuetify,
   render: h => h(App)
@@ -28,9 +28,9 @@ new Vue({
 
 
 
-var fillUsers = function(HelloWorld, data){
+// var fillUsers = function(PaginaInicial, data){
 
-  this.data = data;
-  this.HelloWorld = HelloWorld;
+//   this.data = data;
+//   this.PaginaInicial = PaginaInicial;
 
-}
+// }
