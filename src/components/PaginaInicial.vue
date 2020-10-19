@@ -5,10 +5,8 @@
 </template>
 
 <script>
-  import ServiceTechPoker from '../services/service-techpoker';
   import FormPlay from '../components/FormPlay'
   // this.users = ServiceTechPoker.findUsers()
-
   export default {
     name: 'PaginaInicial',
     
@@ -17,7 +15,6 @@
     },
 
     data: () => ({
-      users: ServiceTechPoker.findUsers(),
       blog: "TechPoker Vuejs"
     }),
     

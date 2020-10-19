@@ -7,12 +7,24 @@ export default {
 
         var retorno = null;
 
-        await servico.get(urlBase, path). then(response => { retorno = response.data.results });
+        await servico.get(urlBase, path). then(response => { retorno = response });
 
         return retorno;
-    }
+    },
     // ,cadastrarRotacoes: async (requestBody) => {
     //     let barramento = `rotacoes/turmas`;
     //     await servico.post(urlBase, barramento, requestBody);
     // }
+
+
+    playCard: async (requestBody) => {
+        let path = '/play';
+
+        var retorno = null;
+
+        await servico.post(urlBase, path, requestBody). then(response => { retorno = response });
+
+        return retorno;
+    }
+
 };

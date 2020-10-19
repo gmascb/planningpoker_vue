@@ -14,6 +14,7 @@
     "vue-axios": "^2.1.5",
     "vue-router": "^3.0.3",
     "vuetify": "^2.2.11",
+    "vuetify-numeric": "^0.1.6",
     "watch": "^1.0.2"
   },
   "devDependencies": {
