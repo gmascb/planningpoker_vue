@@ -10,7 +10,7 @@
       <v-spacer></v-spacer>
       
       <v-btn href="https://techpoker.herokuapp.com" target="_blank" text>
-        <span class="mr-2">Rails</span>
+        <span class="mr-2"></span>
         <v-img alt="Vuetify Logo" class="shrink mr-2"
             contain src="../assets/ruby.png" 
             transition="scale-transition" width="40"/>
