@@ -1,7 +1,7 @@
 <template>
     <v-app name="FormPlay">
         
-        <form @submit="onSubmit" id="play" v-on:submit.prevent="onSubmit">
+        <form id="play" v-on:submit.prevent="onSubmit">
             <v-col>
                 <v-text-field placeholder="Player name" id="name" type="text" v-model="form.user"></v-text-field>
             </v-col>
@@ -20,11 +20,14 @@
                             v-model="form.value" />
             </v-col>
 
-            <div style="display: flex; justify-content: center; ">
-                <v-btn dark 
-                        id="send-button" 
-                        type="submit"> Play!
-                </v-btn>
+            <div style="display: flex; align-items: center; flex-direction: column; ">
+                <div>
+                    <v-btn dark id="send-button" type="submit"> Play! </v-btn>
+                </div>
+                <div style="margin-top: 50px;">
+                    <v-alert v-model="alert" v-if="type == 'success' " dismissible type="success">{{responseMessage}}</v-alert> 
+                    <v-alert v-model="alert" v-if="type == 'warning' " dismissible type="warning">{{responseMessage}}</v-alert> 
+                </div>
             </div>
 
             <div style="margin: 100; ">
@@ -35,9 +38,8 @@
                 "room": {{form.room || 0}}
             } -->
             </div>
-
-            <span v-if="responseMessage">{{responseMessage}}</span> 
             
+
         </form>
 
     </v-app>
@@ -64,7 +66,13 @@
     name: 'FormPlay',
     data: () => ({
       items: [1,2,3,5,8,11,20,40,100],
-      responseMessage: null,
+      responseMessage: {
+          type: String
+      },
+      type: {
+          type: String
+      },
+      alert: false,
       form: {
           value: null,
           user: null,
@@ -84,10 +92,14 @@
                     .then((resp) => { 
 
                         if (resp.status == 200){
-                            this.responseMessage = "Sucess!"
+                            this.responseMessage = "Success!"
+                            this.type = "success"
+                            this.alert = true
                         }
                         else{
                             this.responseMessage = resp.data.message
+                            this.type = "warning"
+                            this.alert = true
                         }
                     } )
 
