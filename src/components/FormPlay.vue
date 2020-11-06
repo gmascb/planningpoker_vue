@@ -95,7 +95,7 @@
     }),
 
     mounted() {
-        console.log(this.load())
+        this.load()
     },
 
     components: {
