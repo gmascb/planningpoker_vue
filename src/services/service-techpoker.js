@@ -6,23 +6,31 @@ export default {
     findUsers: async () => {
         let path = '/users';
 
-        var retorno = null;
+        var resp = null;
 
         try{
-            await service.get(urlBase, path). then(response => { retorno = response });    
+            await service.get(urlBase, path). then(response => { resp = response });    
         }
         catch(e){
-            retorno = e.response
+            resp = e.response
         }
 
-        return retorno;
+        return resp;
     },
-    // ,cadastrarRotacoes: async (requestBody) => {
-    //     let barramento = `rotacoes/turmas`;
-    //     await service.post(urlBase, barramento, requestBody);
-    // }
+    findRooms: async () => {
+        let path = '/rooms';
 
+        var resp = null;
 
+        try{
+            await service.get(urlBase, path). then(response => { resp = response })   
+        }
+        catch(e){
+            resp = e.response
+        }
+
+        return resp;
+    },
     playCard: async (requestBody) => {
         let path = '/play';
 

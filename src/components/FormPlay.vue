@@ -3,21 +3,28 @@
         
         <form id="play" v-on:submit.prevent="onSubmit">
             <v-col>
-                <v-text-field placeholder="Player name" id="name" type="text" v-model="form.user"></v-text-field>
+                <v-select :items="users" 
+                            item-text="name" 
+                            item-value="name" 
+                            label="Player name"
+                            v-model="form.user" 
+                            />
             </v-col>
 
             <v-col>
-                <input  id="room" 
-                        type="number" 
-                        placeholder="Room"  
-                        v-model="form.room"
-                        style="background: #F0F8FF;">
+                <v-select :items="rooms" 
+                            item-text="name" 
+                            item-value="id" 
+                            label="Room"
+                            v-model="form.room" 
+                            />        
             </v-col>
-            
+
             <v-col>
-                <v-select :items="items" 
+                <v-select :items="cards" 
                             label="Card Value" 
                             v-model="form.value" />
+
             </v-col>
 
             <div style="display: flex; align-items: center; flex-direction: column; ">
@@ -64,8 +71,14 @@
     export default {
 
     name: 'FormPlay',
+
     data: () => ({
-      items: [1,2,3,5,8,11,20,40,100],
+      cards: [1,2,3,5,8,11,20,40,100],
+
+      rooms: [],
+      users: [],
+      
+      entidades: [ { "id": 1 }, { "id": 2 } ],
       responseMessage: {
           type: String
       },
@@ -78,13 +91,29 @@
           user: null,
           room: null,
           name: null
-      },
-      users: ServiceTechPoker.findUsers()
+      }
     }),
+
+    mounted() {
+        console.log(this.load())
+    },
+
     components: {
       
     },
+
     methods: {
+
+        load(){
+            ServiceTechPoker.findUsers().then((resp) => { 
+                this.users = resp.data;
+            })
+
+            ServiceTechPoker.findRooms().then((resp) => {
+                this.rooms = resp.data;
+            })
+        },
+
         onSubmit() {
             
             try{
