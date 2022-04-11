@@ -52,7 +52,7 @@
     </v-app>
 </template>
 
-<style lang="css">
+<style scoped lang="css">
 
     v-col {
         margin: 10%;
